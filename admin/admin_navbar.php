@@ -16,8 +16,11 @@
       <meta name="author" content="">
       <title>Blog Admin - Dashboard</title>
       <!-- Custom fonts for this template-->
-      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+      <!-- font awaysome  -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
       <!-- Custom styles for this template-->
       <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
    </head>
@@ -39,13 +42,13 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-               <a class="nav-link" href=""> <span>Blogs</span></a>
+               <a class="nav-link" href="admin.php"> <span>Blogs</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-               <a class="nav-link collapsed" href=""> <span>Categories</span> </a>
+               <a class="nav-link collapsed" href="admin_dashb_categories.php"> <span>Categories</span> </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">

@@ -60,7 +60,5 @@ if (isset($_POST['submit_btn'])){
         $_SESSION['error']="Please recheck your email or password";
         header("location:login.php");
     }
-
 }
-
 ?>
