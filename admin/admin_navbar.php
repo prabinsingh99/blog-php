@@ -73,6 +73,20 @@
                   <!-- Sidebar Toggle (Topbar) -->
                   <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"> <i class="fa fa-bars"></i> </button>
                   <!-- Topbar Navbar -->
+                   <?php
+                     if(isset($_SESSION['msg'])){
+                        $message=$_SESSION['msg']['0'];
+                        $bs_class=$_SESSION['msg']['1'];
+                        ?>
+                        <div class="mt-2 alert alert-dismissible <?= $bs_class ?>">
+                           <?= $message ?>
+                           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        <?php
+                        
+                        unset($_SESSION['msg']);
+                     }
+                   ?>
                   <ul class="navbar-nav ml-auto">
                      <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                      <li class="nav-item dropdown no-arrow d-sm-none">

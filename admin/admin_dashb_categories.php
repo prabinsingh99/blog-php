@@ -51,14 +51,24 @@
                               <td><?= $row['cate_name'] ?> </td>
                               <td>
                                  <a class="btn btn-sm btn-success" href="">edit</a>
-                                 <a class="btn btn-sm btn-danger" href="">delete</a>
                               </td>
-
+                              <td>
+                                 <form action="" method="POST" onsubmit="return confirm('Are you sure , Do you want to delete?')">
+                                    <input type="hidden" name="del_catID" value="<?= $row['cate_id'] ?>">
+                                    <input type="submit" name="cata_delete" class="btn btn-sm btn-danger" value="Delete">
+                                 </form>
+                              </td>
                            </tr>
                            <?php
                            
 
                         }
+                     }
+                     else{
+                        ?>
+                        <tr><td colspan="4">No record found</td></tr>
+                        <?php
+
                      }
                   ?>
                </tbody>
@@ -72,4 +82,19 @@
 
 <?php
    include 'admin_footer.php';
+   if(isset($_POST['cata_delete'])){
+      
+      
+      $id = $_POST['del_catID'];
+      $delete = "DELETE FROM categories WHERE cate_id ='$id'";
+      $run = mysqli_query($conn,$delete);
+      if($run){
+         $msg=['Categories deleted successfully', 'alert-success'];
+         $_SESSION['msg']=$msg;
+      }
+      else {
+         $msg=['Category delete failed , please try again', 'alert-danger'];
+         $_SESSION['msg']=$msg;
+      }
+   }
 ?>

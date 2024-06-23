@@ -40,6 +40,7 @@ if(isset($_POST['add_cata'])){
 
         if($query2){
             echo "<script>alert('Categories added successfully.');</script>";
+            
         }
         else {
             echo "<script>alert('Something went wrong, Please try again.');</script>";
