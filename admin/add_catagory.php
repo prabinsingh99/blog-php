@@ -13,7 +13,7 @@
                             <input class="form-control" type="text" name="categories_name" placeholder="Category Name" required>
                         </div>
                         <div class="mb-3 d-flex justify-content-center">
-                            <input class="btn btn-primary mr-3" type="submit" name="add_cata"  >
+                            <input class="btn btn-primary mr-3" type="submit" value="Add" name="add_cata"  >
                             <a href="admin_dashb_categories.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>

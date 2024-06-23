@@ -50,7 +50,7 @@
                               <td><?= ++$count ?></td>
                               <td><?= $row['cate_name'] ?> </td>
                               <td>
-                                 <a class="btn btn-sm btn-success" href="">edit</a>
+                                 <a class="btn btn-sm btn-success" href="edit_categories.php?id=<?= $row['cate_id'] ?>">Edit</a>
                               </td>
                               <td>
                                  <form action="" method="POST" onsubmit="return confirm('Are you sure , Do you want to delete?')">
