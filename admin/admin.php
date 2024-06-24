@@ -11,7 +11,7 @@
    <div class="card shadow">
       <div class="card-header py-3 d-flex justify-content-between">
          <div>
-            <a href="">
+            <a href="add_blogs.php">
                <h6 class="font-weight-bold text-primary mt-2">Add New</h6>
             </a>
          </div>
