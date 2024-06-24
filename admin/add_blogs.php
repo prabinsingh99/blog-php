@@ -29,7 +29,7 @@
                             <input type="file" class="form-control" name="blog_image">
                         </div>
                         <div class="mb-3">
-                            <select name="" id="" class="form-control">
+                            <select name="category"  class="form-control">
                                 <option>Select Category</option>
                                 <?php
                                     while($cats=mysqli_fetch_array($query)){ ?>
@@ -42,7 +42,7 @@
                             </select>
                         </div>
                         <div class="mb-3 d-flex justify-content-center">
-                            <input class="btn btn-primary mr-3" type="submit" value="Publish Article" name="add_cata"  >
+                            <input class="btn btn-primary mr-3" type="submit" value="Publish Article" name="add_blog"  >
                             <a href="admin.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
@@ -53,28 +53,39 @@
 </div>
 <?php include 'admin_footer.php'; 
 
-// if(isset($_POST['add_cata'])){
-//     //echo "<script>alert('Login Sucessfully.')</script>";
-//     $cat_name=mysqli_real_escape_string($conn,$_POST['categories_name']) ;
-//     $sql="SELECT * FROM categories WHERE cate_name='{$cat_name}'";
-//     $query=mysqli_query($conn,$sql);
-//     $row=mysqli_num_rows($query);
-//     if($row){
-//         echo "<script>alert('Category already exists.');</script>";
 
-//     }
-//     else {
-//         $sql2="INSERT INTO categories (cate_name) VALUES ('$cat_name')";
-//         $query2=mysqli_query($conn,$sql2);
 
-//         if($query2){
-//             echo "<script>alert('Categories added successfully.');</script>";
-            
-//         }
-//         else {
-//             echo "<script>alert('Something went wrong, Please try again.');</script>";
-//         }
-//     }
-// }
+if(isset($_POST['add_blog'])){
+   $title= mysqli_real_escape_string($conn,$_POST['blog_title']); 
+   $body= mysqli_real_escape_string($conn,$_POST['blog_body']); 
+   $filename=$_FILES['blog_image']['name'];
+   $temp_filename = $_FILES['blog_image']['tmp_name'];
+   $size=$_FILES['blog_image']['size'];
+   $image_ext=strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+   $allow_ext=['jpg','png','jpeg'];
+   $destination="uploaded_images/".$filename;
+   $category= mysqli_real_escape_string($conn,$_POST['category']); 
+
+   if(in_array($image_ext,$allow_ext)){
+    if($size<=2000000){
+        move_uploaded_file($temp_filename, $destination);
+        $sql2="INSERT INTO blog(blog_title,blog_body,blog_image,category,author_id) VALUES('$title','$body','$filename','$category','$author_id')";
+        $query2= mysqli_query($conn,$sql2);
+        if($query2){
+            $msg = ['Congratulation You just posted a blog','alert-success'];
+            $_SESSION['msg'] =$msg;
+        }
+        else{
+            $msg = ['Something error , please try againda','alert-danger'];
+            $_SESSION['msg'] =$msg;
+        }
+    }
+
+   }
+   else{
+    echo "File type is not vaild, please upload png,jpg,jpeg";
+   }
+
+}
 
 ?>
